@@ -1,0 +1,56 @@
+<div class="container">
+  <h1>{{titulo}}</h1>
+  <div class="col-sm-7 float-left">
+    <table border="0" span="0" *ngIf="hayRegistros(); else sinarticulos" class="table table-borderless table-striped table-dark"  style=" border:0px; box-shadow:3px 3px 5px 4px rgba(0,0,0,0.25);">
+      <thead class="thead-dark" style="background:black; color:white;">
+        <tr>
+          <td>IdVehiculo</td>
+          <td>marca</td>
+          <td>modelo</td>
+          <td>ano</td>
+          <td>placa</td>
+          <td>color</td>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usuario">
+          <td>{{user.id_vehiculo}}</td>
+          <td>{{user.marca}}</td>
+          <td>{{user.modelo}}</td>
+          <td>{{user.ano}}</td>
+          <td>{{user.placa}}</td>
+          <td>{{user.color}}</td>
+          <td><button class="btn btn-danger text-white" (click)="Eliminar(user.id_vehiculo)">Borrar</button>&nbsp;<button class="btn btn-info text-white" (click)="Seleccionar(user.id_vehiculo)">Seleccionar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #sinarticulos><p>No hay vehiculos.</p></ng-template>
+
+
+<div class="card col-sm-4 p-2 float-right">
+  <p>
+    Nombre <input type="text" class="form-control m-1"type="text" [(ngModel)]="user.marca" placeholder="chevrolet">
+  </p>
+  <p>
+    Apellido <input type="text" class="form-control m-1"type="text" [(ngModel)]="user.modelo" placeholder="aveou">
+  </p>
+  <p>
+    Correo <input type="email" class="form-control m-1"type="text" [(ngModel)]="user.ano" placeholder="2005">
+  </p>
+  <p>
+    Numero <input maxlength="13" type="tel" class="form-control m-1"type="text" [(ngModel)]="user.placa" placeholder=" 3844">
+  </p>
+  <p>
+    Clave <input type="password" class="form-control m-1"type="text" [(ngModel)]="user.color" placeholder="tomate">
+  </p>
+  <div class="row">
+    <div class="col-sm-2 "> <p><button class="btn btn-outline-dark float-left" (click)="Agregar()" >Agregar</button></p>&nbsp;</div>
+    <div class="col-sm-2 offset-md-2"> <p><button class="btn btn-outline-dark float-right" (click)="Modificar()" >Modificar</button></p></div>
+  </div>
+ 
+</div>
+
+</div>
